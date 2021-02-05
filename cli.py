@@ -6,10 +6,7 @@ def cmd_whois(args):
     as_json = args['json']
     w = whois.whois(domain, as_json)
     w.lookup()
-    if as_json:
-        print(w.json)
-    else:
-        print(w.text)
+    print(w.result)
 
 if __name__ == '__main__':
 
