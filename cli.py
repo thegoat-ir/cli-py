@@ -30,4 +30,7 @@ if __name__ == '__main__':
     }
 
     args = vars(parser.parse_args())
-    commands[args['command']](args)
+    if args['command']:
+        commands[args['command']](args)
+    else:
+        parser.print_help()
