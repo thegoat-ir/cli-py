@@ -1,9 +1,9 @@
 from config import API_TOKEN
 import json
-try: # python3.x
+try: # python3
     from urllib.request import Request, urlopen
-except ImportError: # python2.x
-    from urllib import urlopen
+except ImportError: # python2
+    from urllib2 import Request, urlopen
 
 API_PATH = 'https://api.mahdyar.me/whois/lookup?token=%s&domain=%s'
 class whois:
