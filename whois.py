@@ -10,7 +10,7 @@ class whois:
         self.as_json = as_json
 
     def fetch(self, url):
-        request = Request(API_PATH % (API_TOKEN, self.domain), headers={'User-Agent': 'Mozilla/5.0'})
+        request = Request(API_PATH % (API_TOKEN, self.domain), headers={'User-Agent': 'thegoat-cli'})
         response = urlopen(request)
         return json.loads(response.read().decode('utf-8'))
 
