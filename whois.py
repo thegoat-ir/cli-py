@@ -1,23 +1,22 @@
-from config import API_TOKEN
+from config import API_TOKEN, API_URL
 import json
 try: # python3
     from urllib.request import Request, urlopen
 except ImportError: # python2
     from urllib2 import Request, urlopen
 
-API_PATH = 'https://api.mahdyar.me/whois/lookup?token=%s&domain=%s'
 class whois:
     def __init__(self, domain, as_json):
         self.domain = domain
         self.as_json = as_json
 
     def fetch(self, url):
-        request = Request(API_PATH % (API_TOKEN, self.domain), headers={'User-Agent': 'thegoat-cli'})
+        request = Request(API_URL % (API_TOKEN, self.domain), headers={'User-Agent': 'thegoat-cli'})
         response = urlopen(request)
         return json.loads(response.read().decode('utf-8'))
 
     def lookup(self):
-        json = self.fetch(API_PATH % (API_TOKEN, self.domain))
+        json = self.fetch(API_URL % (API_TOKEN, self.domain))
         if self.as_json:
             self.result = json
         else:
