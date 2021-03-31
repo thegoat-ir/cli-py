@@ -6,6 +6,7 @@ setup(
     version='0.1',
     license='MIT',
     description='The Goat CLI',
+    long_description='The Goat CLI brings The Goat to your command line.',
     packages=find_packages(),
     entry_points={
         'console_scripts': [
