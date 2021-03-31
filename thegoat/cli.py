@@ -1,5 +1,6 @@
-import whois
+from thegoat import whois
 import argparse
+
 
 def cmd_whois(args):
     domain = args['<domain>']
@@ -8,7 +9,8 @@ def cmd_whois(args):
     w.lookup()
     print(w.result)
 
-if __name__ == '__main__':
+
+def main():
 
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(title='Commands', dest='command')
@@ -20,7 +22,8 @@ if __name__ == '__main__':
     # whois
     whois_parser = subparsers.add_parser('whois', help='whois <domain>')
     whois_parser.add_argument('<domain>', type=str, help='domain to lookup')
-    whois_parser.add_argument('-j', '--json', help='print as json', action='store_true')
+    whois_parser.add_argument(
+        '-j', '--json', help='print as json', action='store_true')
 
     commands = {
         'whois': cmd_whois,
