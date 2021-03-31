@@ -1,9 +1,7 @@
-from config import API_TOKEN, API_URL
+from thegoat.config import API_TOKEN, API_URL
 import json
-try: # python3
-    from urllib.request import Request, urlopen
-except ImportError: # python2
-    from urllib2 import Request, urlopen
+from urllib.request import Request, urlopen
+
 
 class whois:
     def __init__(self, domain, as_json):
@@ -11,7 +9,8 @@ class whois:
         self.as_json = as_json
 
     def fetch(self, url):
-        request = Request(API_URL % (API_TOKEN, self.domain), headers={'User-Agent': 'thegoat-cli'})
+        request = Request(API_URL % (API_TOKEN, self.domain),
+                          headers={'User-Agent': 'thegoat-cli'})
         response = urlopen(request)
         return json.loads(response.read().decode('utf-8'))
 
