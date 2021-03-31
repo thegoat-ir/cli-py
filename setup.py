@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='thegoat',
-    version='0.1',
+    version='0.2',
     license='MIT',
     description='The Goat CLI',
     long_description='The Goat CLI brings The Goat to your command line.',
